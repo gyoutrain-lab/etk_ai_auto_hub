@@ -3,74 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ETK Ecosystem Manager - Silo Hub & Sitemap</title>
+    <title>ETK Ecosystem Manager - Master Silo & Sitemap Hub</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-emerald-500 selection:text-white min-h-screen flex flex-col justify-between">
 
-    <!-- HEADER -->
+    <!-- HEADER / NAVIGATION -->
     <nav class="bg-slate-900/85 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3">
                 <span class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse"></span>
-                <span class="text-xl font-bold text-white tracking-tight">ETK<span class="text-emerald-500">Ecosystem Manager</span></span>
+                <span class="text-xl font-bold text-white tracking-tight">ETK<span class="text-emerald-500">Ecosystem Hub</span></span>
             </div>
             <div class="flex items-center space-x-4">
-                <a href="etk_command_matrix_hub.html" class="text-xs bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2 rounded-xl transition shadow-lg shadow-emerald-600/20">
-                    + Buka Command Matrix Hub
+                <div class="hidden md:flex items-center space-x-2 text-xs font-mono text-emerald-400 bg-emerald-950/80 border border-emerald-900 px-3 py-1.5 rounded-lg">
+                    <span class="w-2 h-2 bg-emerald-400 rounded-full animate-ping"></span>
+                    <span>Live Silo Synchronization Active</span>
+                </div>
+                <a href="etk_command_matrix_hub.html" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition shadow-lg shadow-emerald-600/20 flex items-center space-x-2 cursor-pointer">
+                    <span>⚡ Buka Command Matrix Hub</span>
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- MAIN INTERFACE -->
-    <main class="max-w-5xl mx-auto px-6 py-12 w-full space-y-10 flex-grow">
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="max-w-6xl mx-auto px-6 py-12 w-full space-y-12 flex-grow">
         
-        <!-- HERO SECTION -->
-        <div class="text-center space-y-3">
-            <h1 class="text-3xl md:text-5xl font-black text-white tracking-tight">Link-Map & Silo Sync Protocol</h1>
-            <p class="text-xs md:text-sm text-slate-400 max-w-2xl mx-auto">
-                Pusat navigasi utama (*Master Sitemap Hub*). Seluruh artikel turunan yang didaftarkan melalui Hub secara otomatis terindeks dan membentuk rantai navigasi silang permanen untuk optimasi SEO dan crawling maksimal.
+        <!-- HERO / HEADER SECTION -->
+        <div class="text-center space-y-4 max-w-3xl mx-auto">
+            <span class="text-xs font-mono bg-slate-900 text-emerald-400 border border-slate-800 px-4 py-1.5 rounded-full inline-block">
+                Dynamic Link Mapping & SEO Crawling Architecture
+            </span>
+            <h1 class="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">
+                Master Ecosystem & Sitemap Navigation
+            </h1>
+            <p class="text-xs md:text-sm text-slate-400 leading-relaxed">
+                Pusat direktori utama situs Anda. Seluruh artikel turunan, seri rantai silo, dan pemetaan link permanen terintegrasi secara otomatis di sini untuk memaksimalkan otoritas SEO, indeksasi mesin pencari, dan arus trafik dinamis.
             </p>
         </div>
 
-        <!-- LIVE SILO INDEX LIST (OTOMATIS TERSINKRON DARI HUB) -->
+        <!-- QUICK SYSTEM STATS BAR -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="bg-slate-900/60 border border-slate-800/80 p-5 rounded-2xl flex items-center space-x-4">
+                <div class="p-3 bg-emerald-950 border border-emerald-900 rounded-xl text-emerald-400 font-bold text-sm">📁</div>
+                <div>
+                    <h4 class="text-[10px] text-slate-400 uppercase font-mono tracking-wider">Total Artikel Terindeks</h4>
+                    <p id="statTotalArticles" class="text-lg font-bold text-white font-mono">0 Artikel</p>
+                </div>
+            </div>
+            <div class="bg-slate-900/60 border border-slate-800/80 p-5 rounded-2xl flex items-center space-x-4">
+                <div class="p-3 bg-emerald-950 border border-emerald-900 rounded-xl text-emerald-400 font-bold text-sm">🔗</div>
+                <div>
+                    <h4 class="text-[10px] text-slate-400 uppercase font-mono tracking-wider">Silo Protocol Status</h4>
+                    <p class="text-lg font-bold text-emerald-400 font-mono">Fully Synchronized</p>
+                </div>
+            </div>
+            <div class="bg-slate-900/60 border border-slate-800/80 p-5 rounded-2xl flex items-center space-x-4">
+                <div class="p-3 bg-emerald-950 border border-emerald-900 rounded-xl text-emerald-400 font-bold text-sm">🚀</div>
+                <div>
+                    <h4 class="text-[10px] text-slate-400 uppercase font-mono tracking-wider">Crawling Engine</h4>
+                    <p class="text-lg font-bold text-white font-mono">Permanent Active</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- DYNAMIC SILO INDEX GRID -->
         <div class="space-y-6">
             <div class="flex justify-between items-center border-b border-slate-800 pb-4">
-                <h2 class="text-sm font-bold text-white uppercase tracking-wider text-emerald-400">Daftar Artikel Tersimpan & Silo Sitemap Aktif</h2>
-                <span id="syncStatusBadge" class="text-[10px] font-mono bg-emerald-950 text-emerald-400 border border-emerald-900 px-3 py-1 rounded-lg">Sync Status: Active</span>
+                <div>
+                    <h2 class="text-sm font-bold text-white uppercase tracking-wider text-emerald-400">Daftar Artikel & Navigasi Silo Aktif</h2>
+                    <p class="text-[10px] text-slate-400">Diperbarui secara real-time dari penyimpanan lokal Command Matrix.</p>
+                </div>
+                <button onclick="window.location.reload()" class="text-[10px] text-slate-400 hover:text-emerald-400 font-mono transition cursor-pointer">
+                    🔄 Refresh Sinkronisasi
+                </button>
             </div>
 
-            <!-- Kontainer daftar artikel yang disinkronkan secara dinamis -->
-            <div id="siloIndexList" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Kontainer tempat artikel disuntikkan secara otomatis -->
+            <div id="siloIndexList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <!-- Data akan dimuat otomatis oleh JavaScript -->
             </div>
         </div>
     </main>
 
     <!-- FOOTER -->
-    <footer class="border-t border-slate-900 bg-slate-950 py-6 text-center text-[10px] font-mono text-slate-500">
+    <footer class="border-t border-slate-900 bg-slate-950 py-8 text-center text-[10px] font-mono text-slate-500 space-y-2">
         <p>&copy; 2026 ETKFreelancer Architecture. Dynamic Link Mapping Engine & Ecosystem Hub.</p>
+        <p class="text-emerald-500/80">Automated Silo Infrastructure for Permanent SEO & Ads Performance.</p>
     </footer>
 
-    <!-- JAVASCRIPT AUTO-SYNC LOGIC -->
+    <!-- AUTO-SYNC JAVASCRIPT LOGIC -->
     <script>
         window.onload = function() {
-            renderHubSiloIndex();
+            renderMainSiloIndex();
         };
 
-        function renderHubSiloIndex() {
+        function renderMainSiloIndex() {
             const container = document.getElementById('siloIndexList');
-            const savedArticles = JSON.parse(localStorage.getItem('etk_silo_index')) || [];
+            const statBox = document.getElementById('statTotalArticles');
+            let savedArticles = JSON.parse(localStorage.getItem('etk_silo_index')) || [];
+
+            // Update statistik total artikel
+            statBox.textContent = `${savedArticles.length} Artikel`;
 
             if (savedArticles.length === 0) {
                 container.innerHTML = `
-                    <div class="col-span-2 p-8 bg-slate-900/50 border border-slate-800/80 rounded-2xl text-center space-y-3">
-                        <p class="text-xs text-slate-400">Belum ada artikel yang terdaftar di Silo Index.</p>
-                        <a href="etk_command_matrix_hub.html" class="inline-block text-xs text-emerald-400 font-mono underline hover:text-emerald-300">
-                            Masuk ke Command Matrix Hub untuk mendaftarkan artikel pertama ->
-                        </a>
+                    <div class="col-span-full p-12 bg-slate-900/40 border border-slate-800/80 rounded-2xl text-center space-y-4">
+                        <div class="text-3xl">📭</div>
+                        <h3 class="text-sm font-bold text-white">Belum Ada Artikel yang Terdaftar di Silo Index</h3>
+                        <p class="text-xs text-slate-400 max-w-md mx-auto">
+                            Gunakan halaman Command Matrix Hub untuk merakit, mengimpor, dan mendaftarkan artikel baru Anda agar tampil di halaman utama ini.
+                        </p>
+                        <div>
+                            <a href="etk_command_matrix_hub.html" class="inline-block bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs px-5 py-3 rounded-xl transition shadow-lg shadow-emerald-600/20">
+                                Mulai Buat & Daftarkan Artikel →
+                            </a>
+                        </div>
                     </div>`;
                 return;
             }
@@ -78,12 +128,18 @@
             let html = '';
             savedArticles.forEach(art => {
                 html += `
-                    <a href="${art.fileName}" class="p-6 bg-slate-900 border border-slate-800 rounded-2xl hover:border-emerald-500 transition space-y-2 block shadow-lg">
-                        <div class="flex justify-between items-center">
-                            <span class="text-[10px] font-mono bg-emerald-950 text-emerald-400 border border-emerald-900 px-2.5 py-1 rounded-md uppercase">${art.category}</span>
-                            <span class="text-[10px] font-mono text-slate-500">${art.fileName}</span>
+                    <a href="${art.fileName}" class="group p-6 bg-slate-900/80 hover:bg-slate-900 border border-slate-800 hover:border-emerald-500/80 rounded-2xl transition space-y-3 flex flex-col justify-between shadow-lg">
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="text-[10px] font-mono bg-emerald-950 text-emerald-400 border border-emerald-900 px-2.5 py-1 rounded-md uppercase tracking-wider">${art.category}</span>
+                                <span class="text-[10px] font-mono text-slate-500">${art.fileName}</span>
+                            </div>
+                            <h3 class="text-sm font-bold text-white tracking-tight group-hover:text-emerald-400 transition">${art.title}</h3>
                         </div>
-                        <h3 class="text-sm font-bold text-white tracking-tight">${art.title}</h3>
+                        <div class="pt-3 border-t border-slate-800/60 flex items-center justify-between text-[10px] font-mono text-emerald-500">
+                            <span>Akses Halaman Silo →</span>
+                            <span class="text-slate-500">Active Node</span>
+                        </div>
                     </a>
                 `;
             });
