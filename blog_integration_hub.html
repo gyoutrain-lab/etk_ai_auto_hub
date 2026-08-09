@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ETK Dynamic Ecosystem & Auto-Index Manager</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-emerald-500 selection:text-white min-h-screen flex flex-col justify-between">
+
+    <!-- HEADER -->
+    <nav class="bg-slate-900/85 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="w-3 h-3 bg-emerald-500 rounded-full"></span>
+                <span class="text-xl font-bold text-white tracking-tight">ETK<span class="text-emerald-500">Ecosystem Manager</span></span>
+            </div>
+            <div class="text-xs font-mono text-slate-400">
+                Link-Map & Silo Sync Protocol
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN PANEL -->
+    <main class="max-w-4xl mx-auto px-6 py-12 w-full space-y-8 flex-grow">
+        <div class="text-center space-y-3">
+            <h1 class="text-3xl font-black text-white tracking-tight">Ecosystem Integration & Sitemap Hub</h1>
+            <p class="text-xs md:text-sm text-slate-400 max-w-xl mx-auto">
+                Daftarkan artikel baru yang telah Anda generate agar otomatis terindeks ke dalam daftar navigasi silang situs Anda.
+            </p>
+        </div>
+
+        <!-- FORM INPUT ARTIKEL BARU -->
+        <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+            <h2 class="text-sm font-bold text-white uppercase tracking-wider">Tambah Artikel ke Silo Index</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="space-y-2">
+                    <label class="text-xs font-medium text-slate-300">Nama File (Contoh: post_01.html)</label>
+                    <input type="text" id="articleFile" placeholder="post_01.html" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-emerald-500 font-mono">
+                </div>
+                <div class="space-y-2">
+                    <label class="text-xs font-medium text-slate-300">Kategori / Label Silo</label>
+                    <input type="text" id="articleCategory" placeholder="Tech / Workflow / SEO" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-emerald-500">
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <label class="text-xs font-medium text-slate-300">Judul Artikel</label>
+                <input type="text" id="articleTitle" placeholder="Judul lengkap artikel Anda..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-emerald-500">
+            </div>
+
+            <button onclick="saveArticle()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-4 rounded-xl transition shadow-lg shadow-emerald-600/20 cursor-pointer">
+                Simpan & Perbarui Link Map
+            </button>
+        </div>
+
+        <!-- DAFTAR ARTIKEL TER-INDEX -->
+        <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-xl space-y-4">
+            <div class="flex justify-between items-center">
+                <h3 class="text-sm font-bold text-white">Daftar Artikel Tersimpan (Silo Index)</h3>
+                <button onclick="clearDatabase()" class="text-[10px] text-red-400 hover:text-red-300 font-mono">Reset Index</button>
+            </div>
+            <div id="articleListContainer" class="space-y-3">
+                <!-- Daftar artikel akan muncul secara dinamis di sini -->
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-900 bg-slate-950 py-6 text-center text-[10px] font-mono text-slate-500">
+        <p>&copy; 2026 ETKFreelancer Architecture. Dynamic Link Mapping Engine.</p>
+    </footer>
+
+    <!-- JAVASCRIPT INTEGRATION LOGIC -->
+    <script>
+        function loadArticles() {
+            const container = document.getElementById('articleListContainer');
+            const articles = JSON.parse(localStorage.getItem('etk_blog_index')) || [];
+
+            if (articles.length === 0) {
+                container.innerHTML = '<p class="text-xs text-slate-500 font-mono">Belum ada artikel yang ditambahkan ke indeks.</p>';
+                return;
+            }
+
+            container.innerHTML = '';
+            articles.forEach((art, index) => {
+                container.innerHTML += `
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 flex justify-between items-center">
+                        <div>
+                            <span class="text-[10px] font-mono text-emerald-400 bg-emerald-950/80 px-2.5 py-1 rounded">${art.category}</span>
+                            <h4 class="text-xs font-bold text-white mt-2">${art.title}</h4>
+                            <p class="text-[10px] text-slate-500 font-mono mt-1">Target File: ${art.file}</p>
+                        </div>
+                        <button onclick="deleteArticle(${index})" class="text-xs text-slate-500 hover:text-red-400 px-3 py-1">Hapus</button>
+                    </div>
+                `;
+            });
+        }
+
+        function saveArticle() {
+            const file = document.getElementById('articleFile').value.trim();
+            const category = document.getElementById('articleCategory').value.trim();
+            const title = document.getElementById('articleTitle').value.trim();
+
+            if (!file || !category || !title) {
+                alert('Semua kolom wajib diisi!');
+                return;
+            }
+
+            let articles = JSON.parse(localStorage.getItem('etk_blog_index')) || [];
+            articles.push({ file, category, title });
+            localStorage.setItem('etk_blog_index', JSON.stringify(articles));
+
+            document.getElementById('articleFile').value = '';
+            document.getElementById('articleCategory').value = '';
+            document.getElementById('articleTitle').value = '';
+
+            loadArticles();
+            alert('Artikel berhasil dimasukkan ke dalam link-map indeks!');
+        }
+
+        function deleteArticle(index) {
+            let articles = JSON.parse(localStorage.getItem('etk_blog_index')) || [];
+            articles.splice(index, 1);
+            localStorage.setItem('etk_blog_index', JSON.stringify(articles));
+            loadArticles();
+        }
+
+        function clearDatabase() {
+            if (confirm('Yakin ingin mereset seluruh indeks artikel?')) {
+                localStorage.removeItem('etk_blog_index');
+                loadArticles();
+            }
+        }
+
+        // Load data saat halaman dibuka
+        window.onload = loadArticles;
+    </script>
+</body>
+</html>
