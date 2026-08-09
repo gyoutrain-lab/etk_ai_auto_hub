@@ -1,195 +1,103 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ETK AI Command Matrix & Dynamic Blog Engine v1.0</title>
-
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4CG4SBMFWW"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-4CG4SBMFWW');
-    </script>
-
-    <!-- Meta Pixel Code -->
-    <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._asyncLoader) {
-        if(!f._fbq)f._fbq=n;n.push=this.readyState?this.readyState:'loading';
-        n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        n.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '1739586453729385');
-      fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1739586453729385&ev=PageView&noscript=1"/></noscript>
-
-    <meta name="description" content="ETK AI Command Matrix & Dynamic Blog Engine. Standardized prompt orchestration and automated mapping matrix for infinite content generation.">
-    <meta name="robots" content="index,follow,max-image-preview:large">
-    <link rel="canonical" href="https://gyoutrain-lab.github.io/ETKFreelancer/etk_ai_command_matrix.html">
-
-    <!-- OPEN GRAPH & TWITTER CARDS -->
-    <meta property="og:url" content="https://gyoutrain-lab.github.io/ETKFreelancer/etk_ai_command_matrix.html">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="ETK AI Command Matrix & Dynamic Blog Engine">
-    <meta property="og:description" content="Master dynamic blog engines and precise link-mapping matrices for automated AI content generation.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/gyoutrain-lab/ETKFreelancer/main/Logo_Freelancer.png">
-    <meta name="twitter:card" content="summary_large_image">
-
-    <!-- STRUCTURED DATA (SCHEMA.ORG) -->
-    <script type="application/ld+json">
-    {
-      "@context":"https://schema.org",
-      "@type":"TechArticle",
-      "headline":"ETK AI Command Matrix & Dynamic Blog Engine",
-      "description":"Framework for dynamic blog generation, robust silo link mapping, and standardized prompt orchestration.",
-      "url":"https://gyoutrain-lab.github.io/ETKFreelancer/etk_ai_command_matrix.html",
-      "author": {
-        "@type":"Organization",
-        "name":"ETKFreelancer Engineering Team"
-      },
-      "publisher": {
-        "@type":"Organization",
-        "name":"ETKFreelancer Studio",
-        "logo": {
-          "@type":"ImageObject",
-          "url":"https://raw.githubusercontent.com/gyoutrain-lab/ETKFreelancer/main/Logo_Freelancer.png"
-        }
-      }
-    }
-    </script>
-
-    <!-- FAVICON -->
-    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/gyoutrain-lab/ETKFreelancer/main/Logo_Freelancer.png">
-    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/gyoutrain-lab/ETKFreelancer/main/Logo_Freelancer.png">
+    <title>ETK AI Command Matrix & Dynamic Engine Hub</title>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#10b981">
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-emerald-500 selection:text-white">
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-emerald-500 selection:text-white min-h-screen flex flex-col justify-between">
 
-    <!-- HEADER NAVIGATION -->
+    <!-- NAVBAR DENGAN LINK YANG BERFUNGSI -->
     <nav class="bg-slate-900/85 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3">
-                <img src="https://raw.githubusercontent.com/gyoutrain-lab/ETKFreelancer/main/Logo_Freelancer.png" alt="ETKFreelancer Logo" class="h-10 w-auto object-contain">
+                <span class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse"></span>
                 <span class="text-xl font-bold text-white tracking-tight">ETK<span class="text-emerald-500">CommandMatrix</span></span>
             </div>
             <div class="flex items-center space-x-4">
                 <a href="index.html" class="text-xs text-slate-300 hover:text-emerald-400 font-medium transition-colors">Home Hub</a>
                 <a href="#matrix-spec" class="text-xs text-slate-300 hover:text-emerald-400 font-medium hidden md:inline-block transition-colors">Matrix Spec</a>
                 <a href="#generator-core" class="text-xs text-slate-300 hover:text-emerald-400 font-medium hidden md:inline-block transition-colors">Engine Prompt</a>
-                <a href="index.html#contact" class="text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-2.5 rounded-lg transition shadow-lg shadow-emerald-600/20">Studio Support</a>
+                <a href="blog_engine_core.html" class="text-xs text-slate-300 hover:text-emerald-400 font-medium transition-colors">Open Generator</a>
+                <a href="#contact" class="text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-lg transition shadow-lg shadow-emerald-600/20">Studio Support</a>
             </div>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <header class="max-w-5xl mx-auto px-6 pt-16 pb-8 text-center">
-        <span class="text-xs font-semibold text-emerald-400 uppercase tracking-widest bg-emerald-950/80 border border-emerald-900 px-4 py-2 rounded-full">AI Orchestration & Dynamic Engine</span>
-        <h1 class="text-3xl md:text-5xl font-black text-white tracking-tight my-6 leading-tight">
-            ETK AI Command Matrix: <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">Dynamic Blog Engine & Link-Map Architecture.</span>
-        </h1>
-        <p class="text-sm md:text-base text-slate-400 max-w-2xl mx-auto">
-            Standardized meta-prompting blueprint for autonomous AI generation, rigid silo link-mapping, and zero-error structural deployment across multi-file web ecosystems.
-        </p>
-    </header>
+    <!-- MAIN HERO & CONTENT -->
+    <main class="max-w-4xl mx-auto px-6 py-12 w-full space-y-10 flex-grow">
+        
+        <!-- HERO SECTION -->
+        <div class="text-center space-y-4">
+            <div class="inline-block text-xs font-mono text-emerald-400 bg-emerald-950/80 border border-emerald-900 px-3 py-1.5 rounded-lg">
+                AI Orchestration & Dynamic Engine v2.0
+            </div>
+            <h1 class="text-3xl md:text-5xl font-black text-white tracking-tight">ETK AI Command Matrix</h1>
+            <p class="text-sm md:text-base text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                Dynamic Blog Engine & Link-Map Architecture. Standardized meta-prompting blueprint for autonomous AI generation, rigid silo link-mapping, and zero-error structural deployment across multi-file web ecosystems.
+            </p>
+            <div class="pt-4 flex justify-center gap-4">
+                <a href="blog_engine_core.html" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs px-6 py-3.5 rounded-xl transition shadow-lg shadow-emerald-600/20">
+                    Buka Mesin Generator Konten
+                </a>
+                <a href="blog_integration_hub.html" class="bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 font-bold text-xs px-6 py-3.5 rounded-xl transition">
+                    Kelola Link Silo Index
+                </a>
+            </div>
+        </div>
 
-    <!-- MAIN CONTENT CONTAINER -->
-    <main class="max-w-5xl mx-auto px-6 py-8 space-y-12 text-slate-300 text-sm leading-relaxed">
-
-        <!-- SECTION 1: THE COMMAND MATRIX PHILOSOPHY -->
+        <!-- SECTION 1: MATRIX SPEC -->
         <section id="matrix-spec" class="bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
             <h2 class="text-xl font-bold text-white flex items-center gap-3">
-                <span class="w-3 h-3 bg-emerald-500 rounded-full inline-block"></span> 
-                1. Master Command Blueprint (The Initial Prompt)
+                <span class="text-emerald-500">01.</span> Master Command Blueprint (The Initial Prompt)
             </h2>
-            <p>
-                Mesin blog dinamis ini dikendalikan oleh satu perintah master awal (*Initial Command Matrix*). Dengan menyematkan aturan struktur silo, basis file berurutan (`file_XX.html`), dan validasi tautan balik otomatis, AI dapat memetakan ribuan halaman tanpa mengalami putus rantai referensi (*broken link maps*).
+            <p class="text-xs md:text-sm text-slate-300 leading-relaxed">
+                Mesin blog dinamis ini dikendalikan oleh satu perintah master awal (*Initial Command Matrix*). Dengan menyematkan aturan struktur silo, basis file berurutan (<code class="text-emerald-400 font-mono">file_XX.html</code>), dan validasi tautan balik otomatis, AI dapat memetakan ribuan halaman tanpa mengalami putus rantai referensi (*broken link maps*).
             </p>
-            
-            <div class="bg-slate-950 p-6 rounded-xl border border-slate-800 space-y-4">
-                <h3 class="text-xs font-mono text-emerald-400 uppercase tracking-wider">Universal Prompt Template (Salin dan Gunakan untuk Topik Lain):</h3>
-                <div class="p-4 bg-slate-900 rounded-lg border border-slate-800 text-xs font-mono text-slate-300 overflow-x-auto select-all">
-                    "Bertindaklah sebagai Senior Web Engineer & Technical SEO Director. Kita akan membangun ekosistem blog dinamis berseri dengan format file berurutan (misal: file_91.html, file_92.html, dst.). Setiap file harus memuat: (1) Header Tailwind CSS lengkap dengan GA4 & Meta Pixel, (2) Struktur silo navigation ke index utama dan file sebelumnya/sesudahnya, (3) Schema.org TechArticle, (4) Internal linking yang akurat tanpa broken link. Jawab setiap perintah 'next' dengan menghasilkan script HTML lengkap siap salin sesuai topik utama yang kita tentukan."
-                </div>
+            <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                <span class="text-[10px] font-mono uppercase text-emerald-500 font-bold">Universal Prompt Template (Salin untuk Topik Lain):</span>
+                <p class="text-xs font-mono text-slate-400 bg-slate-900/60 p-3 rounded-lg border border-slate-800">
+                    "Bertindaklah sebagai Senior Web Engineer & Technical SEO Director. Kita akan membangun ekosistem blog dinamis berseri dengan format file berurutan (misal: post_01.html, post_02.html, dst.). Setiap file harus memuat: (1) Header Tailwind CSS lengkap, (2) Struktur silo navigation ke index utama dan file sebelumnya/sesudahnya, (3) Schema.org TechArticle, (4) Internal linking yang akurat."
+                </p>
             </div>
         </section>
 
-        <!-- SECTION 2: DYNAMIC LINK-MAP ENGINE RULES -->
-        <section class="bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
-            <h2 class="text-xl font-bold text-white flex items-center gap-3">
-                <span class="w-3 h-3 bg-emerald-500 rounded-full inline-block"></span> 
-                2. Algoritma Akurasi Link-Map & Silo Architecture
-            </h2>
-            <p>
-                Keunggulan dari mesin ini terletak pada konsistensi navigasi hierarkis. Sistem secara otomatis memperbarui indeks utama (`index.html`) setiap kali kelompok file baru diselesaikan, memastikan *crawl budget* mesin pencari terserap secara optimal.
-            </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
-                <div class="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-2">
-                    <h4 class="text-white font-bold text-xs font-mono text-emerald-400">Step A: Sequence Lock</h4>
-                    <p class="text-xs text-slate-400">Penomoran file konsisten (contoh: 81-85, 91-95) mencegah duplikasi URL dan menjaga hierarki direktori GitHub Pages / Hosting.</p>
-                </div>
-                <div class="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-2">
-                    <h4 class="text-white font-bold text-xs font-mono text-emerald-400">Step B: Cross-Silo Hook</h4>
-                    <p class="text-xs text-slate-400">Setiap artikel secara otomatis menyematkan tautan silang ke artikel relevan sebelumnya dan ke hub utama (`index.html#articles`).</p>
-                </div>
-                <div class="bg-slate-950 p-5 rounded-xl border border-slate-800 space-y-2">
-                    <h4 class="text-white font-bold text-xs font-mono text-emerald-400">Step C: One-Word Trigger</h4>
-                    <p class="text-xs text-slate-400">Cukup ketik <strong class="text-white">"next"</strong> untuk memicu AI menulis artikel berikutnya secara utuh tanpa perlu merumuskan ulang instruksi teknis dari awal.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 3: READY-TO-USE INTERACTIVE BLUEPRINT -->
+        <!-- SECTION 2: ENGINE PROMPT -->
         <section id="generator-core" class="bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
             <h2 class="text-xl font-bold text-white flex items-center gap-3">
-                <span class="w-3 h-3 bg-emerald-500 rounded-full inline-block"></span> 
-                3. Cara Memulai Topik Baru (Penerapan Instan)
+                <span class="text-emerald-500">02.</span> Algoritma Akurasi Link-Map & Silo Architecture
             </h2>
-            <p>
-                Jika Anda ingin beralih ke topik atau proyek lain di masa depan (misalnya e-commerce optimization, AI automation workflows, atau real estate web apps), Anda cukup memberikan format perintah awal berikut kepada bot:
+            <p class="text-xs md:text-sm text-slate-300 leading-relaxed">
+                Keunggulan dari mesin ini terletak pada konsistensi navigasi hierarkis. Sistem secara otomatis memperbarui indeks utama setiap kali kelompok file baru diselesaikan, memastikan *crawl budget* mesin pencari terserap secara optimal.
             </p>
-
-            <div class="p-6 bg-slate-950 rounded-xl border-l-4 border-emerald-500 space-y-3 font-mono text-xs text-slate-300">
-                <p class="text-white font-bold">Contoh Inisiasi Topik Baru:</p>
-                <p class="italic">"Mulai hari ini kita buat seri baru tentang [Masukkan Topik Anda, misal: AI Automation Workflow]. Gunakan basis file_91.html hingga file_95.html dengan struktur Command Matrix yang sama seperti proyek ETKFreelancer."</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                    <strong class="text-emerald-400 block font-bold">Step A: Sequence Lock</strong>
+                    <p class="text-slate-400">Penomoran file konsisten mencegah duplikasi URL dan menjaga hierarki direktori GitHub Pages.</p>
+                </div>
+                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                    <strong class="text-emerald-400 block font-bold">Step B: Cross-Silo Hook</strong>
+                    <p class="text-slate-400">Setiap artikel secara otomatis menyematkan tautan silang ke artikel relevan sebelumnya.</p>
+                </div>
+                <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
+                    <strong class="text-emerald-400 block font-bold">Step C: One-Word Trigger</strong>
+                    <p class="text-slate-400">Cukup gunakan kontrol panel dinamis untuk memperbarui konten tanpa merumuskan ulang kode.</p>
+                </div>
             </div>
         </section>
-
-        <!-- NAVIGATION BACK -->
-        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div>
-                <h4 class="text-white font-bold text-sm">Kembali ke Beranda Utama</h4>
-                <p class="text-xs text-slate-400">Simpan file ini sebagai referensi arsitektur mesin prompt Anda.</p>
-            </div>
-            <a href="index.html" class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs px-5 py-3 rounded-xl transition shadow-lg shadow-emerald-600/20">Back to Main Hub</a>
-        </div>
 
     </main>
 
-    <!-- FOOTER -->
-    <footer class="border-t border-slate-900 bg-slate-950 py-8 mt-12">
-        <div class="max-w-5xl mx-auto px-6 text-center text-[10px] font-mono text-slate-500 space-y-3">
-            <p class="text-slate-400">
-                &copy; 2026 ETKFreelancer Studio. AI Command Matrix & Dynamic Engine Framework.
-            </p>
-            <p>
-                Contact:
-                <a href="mailto:gasfarrasyid@gmail.com" class="text-emerald-400 hover:underline">
-                    gasfarrasyid@gmail.com
-                </a>
-            </p>
-            <p>Yogyakarta, Indonesia</p>
-        </div>
+    <!-- FOOTER / STUDIO SUPPORT -->
+    <footer id="contact" class="border-t border-slate-900 bg-slate-950 py-8 text-center text-xs font-mono text-slate-500 space-y-3">
+        <p>&copy; 2026 ETKFreelancer Studio. AI Command Matrix & Dynamic Engine Framework.</p>
+        <p class="text-slate-400">Contact: gasfarrasyid@gmail.com | Yogyakarta, Indonesia</p>
     </footer>
+
 </body>
 </html>
