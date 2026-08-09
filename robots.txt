@@ -1,0 +1,6 @@
+# ETK Dynamic Blog Engine - Robots.txt
+User-agent: *
+Allow: /
+
+# Directives for Search Engine Bots
+Sitemap: https://gyoutrain-lab.github.io/etk_ai_auto_hub/sitemap.xml
