@@ -1,6 +1,6 @@
-# ETK Dynamic Blog Engine - Robots.txt
+# ETK External Matrix Hub - Robots.txt
 User-agent: *
 Allow: /
 
-# Directives for Search Engine Bots
+# Sitemap Index Directive
 Sitemap: https://gyoutrain-lab.github.io/etk_ai_auto_hub/sitemap.xml
