@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ETK Command Matrix & External Humanizer Hub</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-emerald-500 selection:text-white min-h-screen flex flex-col justify-between">
+
+    <!-- HEADER -->
+    <nav class="bg-slate-900/85 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse"></span>
+                <span class="text-xl font-bold text-white tracking-tight">ETK<span class="text-emerald-500">CommandMatrix Hub</span></span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="index.html" class="text-xs text-slate-300 hover:text-emerald-400 transition">Home Hub</a>
+                <div class="text-xs font-mono text-emerald-400 bg-emerald-950/80 border border-emerald-900 px-3 py-1.5 rounded-lg">
+                    Mode: External Free AI & Prompt Matrix
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN INTERFACE -->
+    <main class="max-w-4xl mx-auto px-6 py-12 w-full space-y-8 flex-grow">
+        <div class="text-center space-y-3">
+            <h1 class="text-3xl md:text-4xl font-black text-white tracking-tight">External AI Prompt & Humanizer Matrix</h1>
+            <p class="text-xs md:text-sm text-slate-400 max-w-xl mx-auto">
+                Salin perintah standar industri ini ke ChatGPT atau Gemini versi web gratis untuk memproduksi artikel berstandar tinggi, lengkap dengan filter Humanizer anti-robot dan format HTML siap pasang.
+            </p>
+        </div>
+
+        <!-- CONTROL PANEL BUILDER -->
+        <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="space-y-2">
+                    <label class="text-xs font-bold uppercase tracking-wider text-slate-300">1. Pilih Target Engine Eksternal</label>
+                    <select id="targetEngine" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-emerald-500 transition">
+                        <option value="OpenAI (ChatGPT GPT-4o / Free)">OpenAI (ChatGPT - Strict E-E-A-T Focus)</option>
+                        <option value="Google Gemini (Advanced / Free Web)">Google Gemini (Deep Analytical Focus)</option>
+                    </select>
+                </div>
+                <div class="space-y-2">
+                    <label class="text-xs font-bold uppercase tracking-wider text-slate-300">2. Masukkan Topik / Judul Artikel</label>
+                    <input type="text" id="targetTopic" placeholder="Contoh: Optimasi Performa Database MySQL untuk Website Skala Besar" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-emerald-500 transition">
+                </div>
+            </div>
+
+            <button onclick="generateMatrixPrompt()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-4 rounded-xl transition shadow-lg shadow-emerald-600/20 cursor-pointer">
+                Rakit Master Command & Humanizer Prompt
+            </button>
+        </div>
+
+        <!-- OUTPUT PROMPT CONTAINER -->
+        <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-xl space-y-4">
+            <div class="flex justify-between items-center">
+                <h3 class="text-sm font-bold text-white">Salin Prompt Ini ke ChatGPT / Gemini Web Anda:</h3>
+                <button onclick="copyPromptBox()" class="text-[10px] bg-slate-800 hover:bg-slate-700 text-slate-300 px-3 py-1.5 rounded-lg font-mono transition">Copy Prompt</button>
+            </div>
+            <textarea id="promptResult" rows="10" readonly class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-xs font-mono text-emerald-400 focus:outline-none" placeholder="Klik tombol di atas untuk merakit prompt otomatis..."></textarea>
+        </div>
+
+        <!-- SECTION: RESULT INJECTOR & FILE SAVER -->
+        <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+            <h3 class="text-sm font-bold text-white uppercase tracking-wider">Simpan Hasil dari AI Eksternal Menjadi File Web</h3>
+            <p class="text-xs text-slate-400">
+                Setelah AI eksternal memberikan hasil kode HTML-nya, tempelkan kodenya di bawah ini untuk langsung diunduh menjadi file `.html` siap pasang ke GitHub.
+            </p>
+
+            <div class="space-y-2">
+                <label class="text-xs font-medium text-slate-300">Nama File (Contoh: post_01.html)</label>
+                <input type="text" id="fileNameInput" value="post_01.html" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white font-mono focus:outline-none focus:border-emerald-500">
+            </div>
+
+            <div class="space-y-2">
+                <label class="text-xs font-medium text-slate-300">Tempel Kode HTML Hasil dari AI Eksternal di Sini</label>
+                <textarea id="htmlInputContent" rows="8" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-xs font-mono text-slate-300 focus:outline-none" placeholder="<!DOCTYPE html>..."></textarea>
+            </div>
+
+            <div class="flex gap-4">
+                <button onclick="downloadHtmlFile()" class="flex-1 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-3.5 rounded-xl transition shadow-lg shadow-emerald-600/20 cursor-pointer">
+                    Download File .HTML
+                </button>
+                <button onclick="downloadTxtFile()" class="flex-1 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs py-3.5 rounded-xl transition cursor-pointer">
+                    Download as .TXT
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-900 bg-slate-950 py-6 text-center text-[10px] font-mono text-slate-500">
+        <p>&copy; 2026 ETKFreelancer Studio. External Matrix & Humanizer Framework.</p>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        function generateMatrixPrompt() {
+            const engine = document.getElementById('targetEngine').value;
+            const topic = document.getElementById('targetTopic').value.trim();
+            const promptBox = document.getElementById('promptResult');
+
+            if (!topic) {
+                alert('Harap masukkan topik atau judul artikel terlebih dahulu!');
+                return;
+            }
+
+            const masterPrompt = `Bertindaklah sebagai Senior Web Engineer, Technical SEO Director, dan Pakar Konten Profesional menggunakan standar arsitektur ${engine}. 
+Buat artikel komprehensif, mendalam, dan original tentang topik berikut: "${topic}".
+
+ATURAN KETAT HUMANIZER & ADSENSE POLICY COMPLIANCE:
+1. Struktur Kalimat & Gaya Bahasa (Burstiness & Perplexity Tinggi): 
+   - Hindari pola kalimat robotik yang repetitif atau terlalu kaku. Gunakan variasi panjang kalimat (dari kalimat pendek yang tegas hingga kalimat kompleks yang mengalir).
+   - Gunakan diksi tingkat lanjut yang alami layaknya ditulis oleh manusia ahli di bidangnya.
+2. E-E-A-T Enforcement (Experience, Expertise, Authoritativeness, Trustworthiness):
+   - Sertakan sudut pandang pengalaman empiris, studi kasus hipotetis, atau analisis teknis mendalam agar bernilai tinggi bagi pembaca.
+   - Jangan menulis teks kosong/bertele-tele (no fluff); pastikan setiap paragraf memberikan wawasan baru.
+3. Struktur Teknis HTML & Silo Ready:
+   - Output WAJIB berupa kode HTML5 lengkap yang bersih, menggunakan tag semantik (<header>, <article>, <section>, <h2>, <h3>, <p>, <blockquote>).
+   - Sertakan styling Tailwind CSS kelas ringan agar langsung terlihat rapi dan profesional.
+   - Berikan navigasi internal silang (Silo navigation links) di bagian bawah artikel yang mengarah ke Hub utama dan halaman seri berikutnya.
+   - Panjang artikel minimal 800 kata. Berikan hasil kodenya secara utuh tanpa terpotong.`;
+
+            promptBox.value = masterPrompt;
+            alert('Master Command & Humanizer Prompt berhasil dirakit! Silakan klik "Copy Prompt" dan tempel ke ChatGPT atau Gemini Web.');
+        }
+
+        function copyPromptBox() {
+            const promptBox = document.getElementById('promptResult');
+            promptBox.select();
+            document.execCommand('copy');
+            alert('Prompt berhasil disalin ke clipboard!');
+        }
+
+        function downloadHtmlFile() {
+            const filename = document.getElementById('fileNameInput').value.trim() || 'post_01.html';
+            const content = document.getElementById('htmlInputContent').value;
+
+            if (!content) {
+                alert('Kolom konten HTML masih kosong!');
+                return;
+            }
+
+            const element = document.createElement('a');
+            const file = new Blob([content], { type: 'text/html' });
+            element.href = URL.createObjectURL(file);
+            element.download = filename;
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+            alert(`File ${filename} berhasil diunduh dan siap di-upload ke GitHub!`);
+        }
+
+        function downloadTxtFile() {
+            const filename = document.getElementById('fileNameInput').value.replace('.html', '.txt');
+            const content = document.getElementById('htmlInputContent').value;
+
+            if (!content) {
+                alert('Kolom konten masih kosong!');
+                return;
+            }
+
+            const element = document.createElement('a');
+            const file = new Blob([content], { type: 'text/plain' });
+            element.href = URL.createObjectURL(file);
+            element.download = filename;
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
+            alert(`File ${filename} berhasil diunduh!`);
+        }
+    </script>
+</body>
+</html>
