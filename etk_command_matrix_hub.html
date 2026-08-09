@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ETK Autonomous Silo Matrix & Batch Humanizer Engine</title>
+    <title>ETK Autonomous Silo Matrix & Local Index Hub</title>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -15,12 +15,12 @@
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3">
                 <span class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse"></span>
-                <span class="text-xl font-bold text-white tracking-tight">ETK<span class="text-emerald-500">Matrix Engine v3.0</span></span>
+                <span class="text-xl font-bold text-white tracking-tight">ETK<span class="text-emerald-500">Matrix Engine v3.5</span></span>
             </div>
             <div class="flex items-center space-x-4">
                 <a href="index.html" class="text-xs text-slate-300 hover:text-emerald-400 transition">Home Hub</a>
                 <div class="text-xs font-mono text-emerald-400 bg-emerald-950/80 border border-emerald-900 px-3 py-1.5 rounded-lg">
-                    Mode: Autonomous Silo & Batch Planner
+                    Mode: Silo Index & SEO Crawler Hub
                 </div>
             </div>
         </div>
@@ -29,15 +29,15 @@
     <!-- MAIN INTERFACE -->
     <main class="max-w-5xl mx-auto px-6 py-12 w-full space-y-8 flex-grow">
         <div class="text-center space-y-3">
-            <h1 class="text-3xl md:text-5xl font-black text-white tracking-tight">Autonomous Silo & Batch Matrix Engine</h1>
+            <h1 class="text-3xl md:text-5xl font-black text-white tracking-tight">Ecosystem Integration & Sitemap Hub</h1>
             <p class="text-xs md:text-sm text-slate-400 max-w-2xl mx-auto">
-                Masukkan topik utama, tentukan jumlah target artikel turunan (10 hingga 100+). Sistem akan memetakan seluruh rantai silo secara otomatis dan merakit master prompt berstandar Humanizer untuk eksekusi instan.
+                Daftarkan artikel baru yang telah Anda generate agar otomatis terindeks ke dalam daftar navigasi silang situs Anda dan memacu SEO serta crawling secara permanen.
             </p>
         </div>
 
         <!-- STEP 1: MASTER TOPIC & BATCH PLANNER -->
         <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
-            <h2 class="text-sm font-bold text-white uppercase tracking-wider text-emerald-400">1. Konfigurasi Master Topik & Perencanaan Silo</h2>
+            <h2 class="text-sm font-bold text-white uppercase tracking-wider text-emerald-400">1. Perencanaan Silo & Pemetaan Link Otomatis</h2>
             
             <div class="space-y-2">
                 <label class="text-xs font-bold text-slate-300">Topik Utama (Niche Core)</label>
@@ -68,82 +68,103 @@
             </button>
         </div>
 
-        <!-- STEP 2: SILO MAPPING & PROMPT OUTPUT -->
-        <div id="resultSection" class="hidden space-y-6">
-            <!-- Silo Map Table Preview -->
-            <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-xl space-y-4">
-                <div class="flex justify-between items-center">
-                    <h3 class="text-sm font-bold text-white uppercase tracking-wider text-emerald-400">2. Hasil Perencanaan Silo & Pemetaan Link</h3>
-                    <span id="totalCountBadge" class="text-[10px] font-mono bg-emerald-950 text-emerald-400 border border-emerald-900 px-3 py-1 rounded-lg"></span>
+        <!-- STEP 2: PROMPT OUTPUT -->
+        <div id="resultSection" class="hidden bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-xl space-y-4">
+            <div class="flex justify-between items-center">
+                <h3 class="text-sm font-bold text-white uppercase tracking-wider text-emerald-400">2. Eksekusi Batch Eksternal (Humanizer Active)</h3>
+                <span id="totalCountBadge" class="text-[10px] font-mono bg-emerald-950 text-emerald-400 border border-emerald-900 px-3 py-1 rounded-lg"></span>
+            </div>
+            <textarea id="masterPromptResult" rows="6" readonly class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-xs font-mono text-emerald-400 focus:outline-none"></textarea>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <button onclick="launchExternalAI('openai')" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-3.5 rounded-xl transition cursor-pointer">
+                    🚀 Buka ChatGPT & Eksekusi Batch
+                </button>
+                <button onclick="launchExternalAI('gemini')" class="w-full bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-100 font-bold text-xs py-3.5 rounded-xl transition cursor-pointer">
+                    ✨ Buka Gemini Web & Eksekusi Batch
+                </button>
+            </div>
+        </div>
+
+        <!-- STEP 3: SILO INDEX REGISTRATION (BAGIAN YANG DICARI) -->
+        <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
+            <h3 class="text-sm font-bold text-white uppercase tracking-wider text-emerald-400">3. Tambah Artikel ke Silo Index & Crawling Management</h3>
+            <p class="text-xs text-slate-400">Daftarkan artikel yang sudah Anda unduh agar tercatat rapi dalam manajemen link situs Anda untuk memacu SEO permanen.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="space-y-2">
+                    <label class="text-xs font-medium text-slate-300">Nama File (Contoh: post_01.html)</label>
+                    <input type="text" id="inputFileName" placeholder="post_01.html" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white font-mono focus:outline-none focus:border-emerald-500">
                 </div>
-                <p class="text-xs text-slate-400">Berikut adalah daftar turunan file dan sub-topik yang direncanakan sistem untuk menjaga rantai link tetap utuh (*zero broken links*).</p>
-                
-                <div class="max-h-60 overflow-y-auto bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2 font-mono text-xs" id="siloMapContainer">
-                    <!-- Dinamis terisi oleh JS -->
+                <div class="space-y-2">
+                    <label class="text-xs font-medium text-slate-300">Kategori / Label Silo</label>
+                    <input type="text" id="inputCategory" placeholder="tech/workflow/crawling/seo" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-emerald-500">
+                </div>
+                <div class="space-y-2">
+                    <label class="text-xs font-medium text-slate-300">Judul Artikel</label>
+                    <input type="text" id="inputTitle" placeholder="Optimalkan SEO untuk e-commerce..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:border-emerald-500">
                 </div>
             </div>
 
-            <!-- Master Batch Prompt Box -->
-            <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-xl space-y-4">
-                <div class="flex justify-between items-center">
-                    <h3 class="text-sm font-bold text-white uppercase tracking-wider text-emerald-400">3. Eksekusi Eksternal (Humanizer + HTML Output)</h3>
-                    <div class="flex gap-2">
-                        <button onclick="copyMasterPrompt()" class="text-[10px] bg-slate-800 hover:bg-slate-700 text-slate-300 px-3 py-1.5 rounded-lg font-mono transition cursor-pointer">Copy Master Prompt</button>
-                    </div>
-                </div>
-                <p class="text-xs text-slate-400">Klik tombol di bawah untuk menyalin prompt matriks dan langsung membuka AI eksternal pilihan Anda:</p>
-                
-                <textarea id="masterPromptResult" rows="10" readonly class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-xs font-mono text-emerald-400 focus:outline-none"></textarea>
+            <button onclick="addArticleToSilo()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-3.5 rounded-xl transition shadow-lg shadow-emerald-600/20 cursor-pointer">
+                Simpan & Perbarui Link Map Silo
+            </button>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-                    <button onclick="launchExternalAI('openai')" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-4 rounded-xl transition shadow-lg shadow-emerald-600/20 cursor-pointer">
-                        🚀 Buka ChatGPT & Eksekusi Batch
-                    </button>
-                    <button onclick="launchExternalAI('gemini')" class="w-full bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-100 font-bold text-xs py-4 rounded-xl transition cursor-pointer">
-                        ✨ Buka Gemini Web & Eksekusi Batch
-                    </button>
+            <!-- TABEL DAFTAR ARTIKEL TERSIMPAN -->
+            <div class="space-y-3 pt-4 border-t border-slate-800">
+                <div class="flex justify-between items-center">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider">Daftar Artikel Tersimpan (Silo Index)</h4>
+                    <button onclick="resetSiloIndex()" class="text-[10px] text-red-400 hover:text-red-300 font-mono transition cursor-pointer">Reset Index</button>
+                </div>
+
+                <div class="overflow-x-auto bg-slate-950 rounded-xl border border-slate-800 p-4">
+                    <table class="w-full text-left text-xs font-mono">
+                        <thead>
+                            <tr class="text-slate-500 border-b border-slate-900 pb-2">
+                                <th class="pb-2">Target File</th>
+                                <th class="pb-2">Kategori Silo</th>
+                                <th class="pb-2">Judul Artikel</th>
+                                <th class="pb-2 text-right">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="siloTableBody" class="text-slate-300 divide-y divide-slate-900">
+                            <!-- Data dinamis terisi oleh localStorage -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
 
         <!-- STEP 4: FILE INJECTOR & SAVER -->
         <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-xl space-y-6">
-            <h3 class="text-sm font-bold text-white uppercase tracking-wider text-emerald-400">4. Simpan Hasil HTML AI Menjadi File Web Siap Upload</h3>
-            <p class="text-xs text-slate-400">Tempelkan kode HTML bersih hasil dari AI eksternal di bawah ini, sesuaikan nama file targetnya, lalu unduh secara instan.</p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="space-y-2">
-                    <label class="text-xs font-medium text-slate-300">Nama File Target (Contoh: post_01.html)</label>
-                    <input type="text" id="fileNameInput" value="post_01.html" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-4 py-3 text-xs text-white font-mono focus:outline-none focus:border-emerald-500">
-                </div>
-                <div class="flex items-end">
-                    <button onclick="downloadHtmlFile()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-3.5 rounded-xl transition shadow-lg shadow-emerald-600/20 cursor-pointer">
-                        Download File .HTML
-                    </button>
-                </div>
-            </div>
-
+            <h3 class="text-sm font-bold text-white uppercase tracking-wider text-emerald-400">4. Unduh File Web Siap Upload ke GitHub</h3>
             <div class="space-y-2">
                 <label class="text-xs font-medium text-slate-300">Tempel Kode HTML Hasil AI Eksternal di Sini</label>
-                <textarea id="htmlInputContent" rows="8" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-xs font-mono text-slate-300 focus:outline-none" placeholder="<!DOCTYPE html>..."></textarea>
+                <textarea id="htmlInputContent" rows="6" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-xs font-mono text-slate-300 focus:outline-none" placeholder="<!DOCTYPE html>..."></textarea>
             </div>
+            <button onclick="downloadHtmlFile()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-3.5 rounded-xl transition shadow-lg shadow-emerald-600/20 cursor-pointer">
+                Download File .HTML Target
+            </button>
         </div>
     </main>
 
     <!-- FOOTER -->
     <footer class="border-t border-slate-900 bg-slate-950 py-6 text-center text-[10px] font-mono text-slate-500">
-        <p>&copy; 2026 ETKFreelancer Architecture. Autonomous Silo Matrix & Humanizer Framework.</p>
+        <p>&copy; 2026 ETKFreelancer Architecture. Silo Index & Crawler Management Framework.</p>
     </footer>
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
         let generatedSiloData = [];
 
+        // Load Silo Index saat halaman dibuka
+        window.onload = function() {
+            renderSiloTable();
+        };
+
         function generateMatrixPlan() {
             const masterTopic = document.getElementById('masterTopic').value.trim();
             const batchSize = parseInt(document.getElementById('batchSize').value);
             const engine = document.getElementById('targetEngine').value;
-            const container = document.getElementById('siloMapContainer');
             const badge = document.getElementById('totalCountBadge');
             const resultSection = document.getElementById('resultSection');
             const promptBox = document.getElementById('masterPromptResult');
@@ -154,78 +175,95 @@
                 return;
             }
 
-            container.innerHTML = '';
-            generatedSiloData = [];
             badge.textContent = `Total Target: ${batchSize} Artikel Silo`;
             resultSection.classList.remove('hidden');
 
-            // Simulasi Algoritma Pemetaan Sub-Topik Silo Otomatis berdasarkan Topik Utama
-            let siloHTML = '';
-            for (let i = 1; i <= batchSize; i++) {
-                let paddedIndex = i < 10 ? '0' + i : i;
-                let subTopic = `Seri ${i}: Analisis Mendalam & Implementasi ${masterTopic} - Bagian ${i}`;
-                let fileName = `post_${paddedIndex}.html`;
-                
-                generatedSiloData.push({ index: i, file: fileName, title: subTopic });
-
-                siloHTML += `<div class="flex justify-between items-center border-b border-slate-900 pb-2">
-                    <span class="text-emerald-400 font-bold">[${fileName}]</span>
-                    <span class="text-slate-300 truncate max-w-md">${subTopic}</span>
-                    <span class="text-[10px] text-slate-500">Silo Linked & Secured</span>
-                </div>`;
-            }
-            container.innerHTML = siloHTML;
-
-            // Merakit Master Batch Prompt dengan Standar Humanizer & Strict HTML Output
             let promptText = `Bertindaklah sebagai Senior Web Engineer, Technical SEO Director, dan Pakar Konten Profesional menggunakan standar arsitektur ${engine}. 
-Kita sedang membangun ekosistem blog berseri otonom dengan topik utama: "${masterTopic}".
-
-Sistem telah merencanakan ${batchSize} artikel silo berurutan. Untuk memulai eksekusi batch pertama, buatkan artikel untuk file target: "post_01.html" dengan sub-topik: "${generatedSiloData[0].title}".
-
-ATURAN KETAT HUMANIZER & ADSENSE POLICY COMPLIANCE:
-1. Struktur Kalimat & Gaya Bahasa (Burstiness & Perplexity Tinggi):
-   - Hindari pola kalimat AI yang kaku atau repetitif. Gunakan variasi panjang kalimat (dari kalimat pendek yang tegas hingga kalimat kompleks yang mengalir alami).
-   - Gunakan diksi tingkat lanjut layaknya ditulis oleh manusia ahli di bidangnya.
-2. E-E-A-T Enforcement (Experience, Expertise, Authoritativeness, Trustworthiness):
-   - Sertakan sudut pandang pengalaman empiris, studi kasus nyata, atau analisis teknis mendalam agar bernilai tinggi bagi pembaca.
-   - Tidak ada teks kosong/bertele-tele (no fluff); pastikan setiap paragraf memberikan wawasan baru.
-3. Struktur Teknis HTML & Silo Ready:
-   - Output WAJIB berupa kode HTML5 lengkap yang bersih, menggunakan tag semantik (<header>, <article>, <section>, <h2>, <h3>, <p>, <blockquote>).
-   - Sertakan styling Tailwind CSS kelas ringan agar langsung terlihat rapi dan profesional.
-   - Di bagian footer artikel, wajib sertakan navigasi silang (Silo navigation links): Link ke 'index.html' (Home Hub) dan link ke artikel selanjutnya ('post_02.html').
-   - Panjang artikel minimal 800 kata. Berikan hasil kodenya secara utuh tanpa terpotong.`;
+Kita sedang membangun ekosistem blog berseri otonom dengan topik utama: "${masterTopic}". Buat artikel komprehensif untuk file target: "post_01.html".
+Aturan Wajib: Humanizer tingkat tinggi, E-E-A-T focus, struktur HTML5 lengkap dengan Tailwind CSS, serta navigasi Silo link-map di bagian bawah artikel. Panjang minimal 800 kata.`;
 
             promptBox.value = promptText;
-            alert(`Silo Matrix berhasil direncanakan untuk ${batchSize} artikel! Silakan salin prompt atau gunakan tombol eksekusi eksternal.`);
-        }
-
-        function copyMasterPrompt() {
-            const promptBox = document.getElementById('masterPromptResult');
-            promptBox.select();
-            document.execCommand('copy');
-            alert('Master Prompt berhasil disalin ke clipboard!');
+            alert('Master Prompt & Silo Plan berhasil dirakit!');
         }
 
         function launchExternalAI(platform) {
             const promptBox = document.getElementById('masterPromptResult');
             if (!promptBox.value) {
-                alert('Silakan klik tombol "Generate Silo Link-Map" terlebih dahulu!');
+                alert('Silakan generate plan terlebih dahulu!');
                 return;
             }
-
             navigator.clipboard.writeText(promptBox.value).then(() => {
                 if (platform === 'openai') {
                     window.open('https://chatgpt.com/', '_blank');
                 } else {
                     window.open('https://gemini.google.com/', '_blank');
                 }
-            }).catch(err => {
-                alert('Gagal menyalin otomatis. Silakan salin secara manual.');
             });
         }
 
+        // Fungsi Manajemen Silo Index Lokal
+        function addArticleToSilo() {
+            const fileName = document.getElementById('inputFileName').value.trim();
+            const category = document.getElementById('inputCategory').value.trim();
+            const title = document.getElementById('inputTitle').value.trim();
+
+            if (!fileName || !category || !title) {
+                alert('Harap lengkapi Nama File, Kategori Silo, dan Judul Artikel!');
+                return;
+            }
+
+            let savedArticles = JSON.parse(localStorage.getItem('etk_silo_index')) || [];
+            savedArticles.push({ fileName, category, title });
+            localStorage.setItem('etk_silo_index', JSON.stringify(savedArticles));
+
+            // Kosongkan form
+            document.getElementById('inputFileName').value = '';
+            document.getElementById('inputCategory').value = '';
+            document.getElementById('inputTitle').value = '';
+
+            renderSiloTable();
+            alert('Artikel berhasil ditambahkan ke Silo Index permanen!');
+        }
+
+        function renderSiloTable() {
+            const tbody = document.getElementById('siloTableBody');
+            let savedArticles = JSON.parse(localStorage.getItem('etk_silo_index')) || [];
+
+            if (savedArticles.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="4" class="text-center py-4 text-slate-500">Belum ada artikel yang didaftarkan ke Silo Index.</td></tr>`;
+                return;
+            }
+
+            let html = '';
+            savedArticles.forEach((art, index) => {
+                html += `<tr>
+                    <td class="py-3 text-emerald-400">${art.fileName}</td>
+                    <td class="py-3 text-slate-400">${art.category}</td>
+                    <td class="py-3">${art.title}</td>
+                    <td class="py-3 text-right">
+                        <button onclick="deleteArticle(${index})" class="text-red-400 hover:text-red-300 cursor-pointer">Hapus</button>
+                    </td>
+                </tr>`;
+            });
+            tbody.innerHTML = html;
+        }
+
+        function deleteArticle(index) {
+            let savedArticles = JSON.parse(localStorage.getItem('etk_silo_index')) || [];
+            savedArticles.splice(index, 1);
+            localStorage.setItem('etk_silo_index', JSON.stringify(savedArticles));
+            renderSiloTable();
+        }
+
+        function resetSiloIndex() {
+            if (confirm('Apakah Anda yakin ingin mereset seluruh Silo Index?')) {
+                localStorage.removeItem('etk_silo_index');
+                renderSiloTable();
+            }
+        }
+
         function downloadHtmlFile() {
-            const filename = document.getElementById('fileNameInput').value.trim() || 'post_01.html';
+            const filename = document.getElementById('inputFileName').value.trim() || 'post_01.html';
             const content = document.getElementById('htmlInputContent').value;
 
             if (!content) {
@@ -240,7 +278,7 @@ ATURAN KETAT HUMANIZER & ADSENSE POLICY COMPLIANCE:
             document.body.appendChild(element);
             element.click();
             document.body.removeChild(element);
-            alert(`File ${filename} berhasil diunduh dan siap di-upload ke GitHub!`);
+            alert(`File ${filename} berhasil diunduh!`);
         }
     </script>
 </body>
